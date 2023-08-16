@@ -27,11 +27,11 @@ function vote(uint candidate) public{
 }
 
 function getWinner() public view returns (address){
-    uint maxVoters = 0;
+    uint maxVoter = 0;
     address winner = address(0);
     for(uint i = 0; i < candidateCount; i++){
-        if(voters[i].vote > maxVoters){
-            maxVoters = voters[i].vote;
+        if(voters[i].vote > maxVotes){
+            maxVotes = voters[i].vote;
             winner = candidates[i];
         }
     }
