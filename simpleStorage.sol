@@ -2,9 +2,9 @@ pragma solidity ^0.6.0;
 
 contract simpleStorage{
 
-    uint favouriteNo;
+    uint256 favouriteNo;
 
-    function store(uint _favouriteNo) public{
+    function store(uint256 _favouriteNo) public{
         favouriteNo = _favouriteNo;
     }
 
