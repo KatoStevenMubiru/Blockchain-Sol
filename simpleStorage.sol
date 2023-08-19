@@ -4,6 +4,11 @@ contract simpleStorage{
 
     uint256 favouriteNo;
 
+    struct People{
+        uint256 favouriteNo;
+        string name;
+    }
+
     function store(uint256 _favouriteNo) public{
         favouriteNo = _favouriteNo;
     }
