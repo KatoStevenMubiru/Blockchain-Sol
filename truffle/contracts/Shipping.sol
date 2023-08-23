@@ -8,7 +8,13 @@ contract Shipping{
 
  event LogNewAlert(string description);
 
- 
+ constructor() public{
+    status = ShippingStatus.Pending;
+ }
+
+ function Shipped() public{
+    
+ }
 
 
 
