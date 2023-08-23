@@ -15,7 +15,7 @@ contract Shipping{
  function Shipped() public{
     status = ShippingStatus.Shipped;
 
-    LogNewAlert("Your pacakage has been shipped");
+   emit LogNewAlert("Your pacakage has been shipped");
 
 
  }
@@ -23,7 +23,7 @@ contract Shipping{
  function Delivered() public{
     status = ShippingStatus.Delivered;
 
-    LogNewAlert("You package has been delivered");
+   emit  LogNewAlert("You package has been delivered");
  }
 
  function getStatus(ShippingStatus _status) internal pure returns(string memory){
