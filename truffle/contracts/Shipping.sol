@@ -13,7 +13,17 @@ contract Shipping{
  }
 
  function Shipped() public{
-    
+    status = ShippingStatus.Shipped;
+
+    LogNewAlert("Your pacakage has been shipped");
+
+
+ }
+
+ function Delivered() public{
+    status = ShippingStatus.Delivered;
+
+    LogNewAlert("You package has been delivered");
  }
 
 
