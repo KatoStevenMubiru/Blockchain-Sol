@@ -11,6 +11,8 @@ contract ERC20MinerReward is ERC20{
 
     function _reward() public{
         _mint(block.coinbase, 20);
-        emit LogNewAlert('_rewarded'', block.coinbase, block.number);
+
+        emit LogNewAlert('_rewarded', block.coinbase, block.number);
+
     }
 }
