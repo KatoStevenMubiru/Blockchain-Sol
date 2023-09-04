@@ -40,3 +40,21 @@ contract WeatherOracle is ChainlinkClient {
     }
 }
 */
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+contract EthPriceOracle {
+    AggregatorV3Interface internal priceFeed;
+
+    constructor(address _priceFeedAddress) {
+        priceFeed = AggregatorV3Interface(_priceFeedAddress);
+    }
+
+    function getLatestEthPrice() public view returns (int256) {
+        (, int256 price, , , ) = priceFeed.latestRoundData();
+        return price;
+    }
+}
