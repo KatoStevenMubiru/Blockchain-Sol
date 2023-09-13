@@ -1,4 +1,6 @@
 pragma solidity ^0.4.17;
+Loading configuration....
+ 
 
 contract Auction {
 
