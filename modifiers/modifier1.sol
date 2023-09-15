@@ -6,8 +6,17 @@ address owner;
 constructor(){
     owner = msg.sender;
 }
-function test1(){
-    
+
+modifier onlyOwner{
+    require(msg.sender == owner);
+    _;
+}
+
+function test1() public view onlyOwner returns (uint){
+    return 1;
+}
+function test2() public view onlyOwner returns(uint){
+    return 1;
 }
 
 }
