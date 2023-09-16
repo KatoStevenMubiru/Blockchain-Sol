@@ -14,7 +14,7 @@ modifier onlyOwner{
     _;
 }
 
-function test1() public view onlyOwner returns (uint){
+function test1() public  onlyOwner returns (uint){
     return 1;
 }
 /*
