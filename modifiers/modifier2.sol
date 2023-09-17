@@ -14,7 +14,7 @@ contact Moddy{
     }
 
     function deposit() public payable{
-        require(msg.sender == owner, "You are the only owner");
+        //require(msg.sender == owner, "You are the only owner");
         balance += msg.value;
     }
 }
