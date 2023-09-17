@@ -7,8 +7,12 @@ contact Moddy{
     constructor(){
         owner = msg.sender;
         balance = msg.value;
-
     }
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only the owner can call this function.");
+        _; // Continue executing the function after passing the modifier check
+    }
+
     function deposit() public payable{
         require(msg.sender == owner, "You are the only owner");
         balance += msg.value;
