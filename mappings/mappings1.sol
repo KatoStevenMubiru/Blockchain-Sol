@@ -4,6 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract Map1{
    /* mapping(uint => bool) map;*/
+   //modified mapping that intakes another mapped value
    mapping(uint => mapping(uint => int)) map;
       
 function addItem(uint key , uint key2, int value ) public{
