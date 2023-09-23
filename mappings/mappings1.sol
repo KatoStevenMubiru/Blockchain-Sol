@@ -8,6 +8,9 @@ contract Map1{
 function addItem(uint key, bool value ) public{
     map[key] = value;
 }
-function getKey(uint key) public view returns
+function getKey(uint key) public view returns(bool){
+    return map[key];
+
+}
 
 }
