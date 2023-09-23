@@ -6,7 +6,8 @@ contract Map1{
     mapping(uint => bool) map;
       
 function addItem(uint key, bool value ) public{
-    
+    map[key] = value;
 }
+function getKey(uint key) public view returns
 
 }
