@@ -3,7 +3,8 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 contract Map1{
-    mapping(uint => bool) map;
+   /* mapping(uint => bool) map;*/
+   mapping(uint => mapping(uint => int)) map;
       
 function addItem(uint key, bool value ) public{
     map[key] = value;
