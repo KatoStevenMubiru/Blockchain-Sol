@@ -64,6 +64,26 @@ class Blockchain {
     _addBlock(block) {
         let self = this;
         return new Promise(async (resolve, reject) => {
+            block.height = self.height + 1;
+
+            // Set block timestamp
+            block.time = new Date().getTime().toString().slice(0, -3);
+
+            // If it's not the Genesis block, assign previousBlockHash
+            if (self.height >= 0) {
+                block.previousBlockHash = self.chain[self.height].hash;
+            }
+
+            // Create the block hash
+            block.hash = SHA256(JSON.stringify(block)).toString();
+
+            // Push the block into the chain array
+            self.chain.push(block);
+
+            // Update the chain height
+            self.height++;
+
+            resolve(block);
            
         });
     }
@@ -78,7 +98,9 @@ class Blockchain {
      */
     requestMessageOwnershipVerification(address) {
         return new Promise((resolve) => {
-            
+            const timestamp = new Date().getTime().toString().slice(0, -3);
+            const message = `${address}:${timestamp}:starRegistry`;
+            resolve(message);
         });
     }
 
@@ -102,7 +124,27 @@ class Blockchain {
     submitStar(address, message, signature, star) {
         let self = this;
         return new Promise(async (resolve, reject) => {
-            
+            const timeInMessage = parseInt(message.split(':')[1]);
+            const currentTime = parseInt(new Date().getTime().toString().slice(0, -3));
+            const timeElapsed = currentTime - timeInMessage;
+
+            // Check if the time elapsed is less than 5 minutes (300 seconds)
+            if (timeElapsed > 300) {
+                reject("Time window for submitting star has expired.");
+            } else {
+                // Verify the message with wallet address and signature
+                const isValid = bitcoinMessage.verify(message, address, signature);
+
+                if (!isValid) {
+                    reject("Message signature verification failed.");
+                } else {
+                    // Create the block and add it to the chain
+                    const newBlock = new BlockClass.Block({ owner: address, star });
+                    await self._addBlock(newBlock);
+
+                    resolve(newBlock);
+                }
+            }
         });
     }
 
@@ -115,7 +157,12 @@ class Blockchain {
     getBlockByHash(hash) {
         let self = this;
         return new Promise((resolve, reject) => {
-           
+            const block = self.chain.find((block) => block.hash === hash);
+            if (block) {
+                resolve(block);
+            } else {
+                reject("Block not found with the given hash.");
+            }
         });
     }
 
@@ -146,7 +193,15 @@ class Blockchain {
         let self = this;
         let stars = [];
         return new Promise((resolve, reject) => {
-            
+            self.chain.forEach((block) => {
+                block.getBData().then((data) => {
+                    if (data.owner === address) {
+                        stars.push(data);
+                    }
+                });
+            });
+
+            resolve(stars);
         });
     }
 
@@ -160,7 +215,23 @@ class Blockchain {
         let self = this;
         let errorLog = [];
         return new Promise(async (resolve, reject) => {
-            
+            for (let i = 0; i < self.chain.length; i++) {
+                const block = self.chain[i];
+
+                // Validate the block
+                const isValid = await block.validate();
+
+                if (!isValid) {
+                    errorLog.push(`Block #${block.height} is not valid.`);
+                }
+
+                // If it's not the Genesis block, compare previousBlockHash
+                if (block.height > 0 && block.previousBlockHash !== self.chain[i - 1].hash) {
+                    errorLog.push(`Block #${block.height} previousBlockHash does not match.`);
+                }
+            }
+
+            resolve(errorLog); 
         });
     }
 
