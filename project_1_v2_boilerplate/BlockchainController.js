@@ -116,7 +116,27 @@ class BlockchainController {
             
         });
     }
+    validateChain() {
+        this.app.get("/validateChain", async (req, res) => {
+            try {
+                const chainErrors = await this.blockchain.validateChain();
+                if (chainErrors.length === 0) {
+                    return res.status(200).json({ isValid: true, errors: [] });
+                } else {
+                    return res.status(500).json({ isValid: false, errors: chainErrors });
+                }
+            } catch (error) {
+                return res.status(500).send("An error happened while validating the chain.");
+            }
+        });
+    }
 
 }
 
-module.exports = (app, blockchainObj) => { return new BlockchainController(app, blockchainObj);}
+module.exports = (app, blockchainObj) => { 
+    //return new BlockchainController(app, blockchainObj);
+    const controller = new BlockchainController(app, blockchainObj);
+    // Add the validateChain endpoint to the controller
+    controller.validateChain();
+    return controller;
+}
