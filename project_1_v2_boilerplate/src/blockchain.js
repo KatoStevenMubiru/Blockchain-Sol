@@ -73,7 +73,8 @@ class Blockchain {
             if (self.height >= 0) {
                 block.previousBlockHash = self.chain[self.height].hash;
             }
-
+            const chainErrors = await self.validateChain();
+            if (chainErrors.length === 0) {
             // Create the block hash
             block.hash = SHA256(JSON.stringify(block)).toString();
 
@@ -84,7 +85,9 @@ class Blockchain {
             self.height++;
 
             resolve(block);
-           
+            } else{
+                reject("Chain validation failed. Block not added.");
+            }
         });
     }
 
