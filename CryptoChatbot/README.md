@@ -9,28 +9,28 @@ You can find the Anaconda install guide [here](https://docs.anaconda.com/free/an
 
 Once you have both of these, open up a the Anaconda prompt. We will create an environment called <span style="background-color: red">base_rasa</span>.It is just a generic name we came up with. Then type:
 
-```anaconda
+```bash
 conda create -n base_rasa python=3.8
 conda activate base_rasa
 ```
 Then
-```anaconda
+```bash
 conda activate base_rasa
 ```
 Now we are going to be uninstalling pip and installing the latest version as pip 20 versions are stuck in long dependency loops
 
-```python
+```bash
 python -m pip uninstall pip
 python -m ensurepip
 pyhton -m pip install -U pip
 ```
 
 Now, we install Rasa
-```python
+```bash
 pip install rasa
 ```
 
 Check if Rasa is installed successfully by doing:
-```
+```bash
 rasa -h
 ```
