@@ -1,11 +1,11 @@
 # Kato Steven Mubiru
 ## Installing on Windows
 To get started, you'll need to make sure that C++ is installed.
-[Here](https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-160)
+The full guide for this can be found [here](https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-160)
 
 Next, you'll want to have anaconda.
-[Here](https://www.anaconda.com/download#windows)
-You can find the Anaconda install guide [Here](https://docs.anaconda.com/free/anaconda/install/windows/)
+You can download this from [here](https://www.anaconda.com/download#windows)
+You can find the Anaconda install guide [here](https://docs.anaconda.com/free/anaconda/install/windows/)
 
 Once you have both of these, open up a the Anaconda prompt. We will create an environment called <span style="background-color: red">base_rasa</span>.It is just a generic name we came up with. Then type:
 
