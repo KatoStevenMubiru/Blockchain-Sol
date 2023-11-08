@@ -1,0 +1,18 @@
+# Ignore Rasa generated and temporary files
+.rasa/
+models/
+__pycache__/
+actions/__pycache__/
+
+# Ignore system and IDE-specific files
+.vscode/
+.idea/
+__init__.py
+
+# Ignore dependencies and virtual environment files (adjust as needed)
+venv/
+env/
+*.pyc
+
+# Ignore logs (if you don't want to commit log files)
+logs/
