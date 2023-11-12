@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./TextToImageComponent.css"; 
 import dotenv from 'dotenv';
+import { CircularProgress } from "@mui/material";
 // Import a CSS file for styling (see below)
 
 const TextToImageComponent = () => {
