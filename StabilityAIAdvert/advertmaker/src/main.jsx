@@ -6,6 +6,6 @@ import MaintenancePage from "./components/Maintenance/maintenance.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <MaintenancePage />
+    <TextToImageComponent />
   </React.StrictMode>
 );

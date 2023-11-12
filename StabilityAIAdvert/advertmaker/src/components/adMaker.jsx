@@ -84,7 +84,7 @@ const TextToImageComponent = () => {
 
       <div className="image-container">
         {loading ? (
-          <p>Loading...</p>
+          <CircularProgress/>
         ) : (
           imageData && <img src={imageData} alt="Generated Image" />
         )}

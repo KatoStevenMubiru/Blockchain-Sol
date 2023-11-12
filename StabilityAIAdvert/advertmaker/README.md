@@ -1,8 +1,41 @@
-# React + Vite
+# Advert Generator Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Advert Generator, a project created by Sibomana Glorry and Kato Steven Mubiru.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This website is designed to generate artwork from text using advanced image generation techniques. It's our first version, and we're excited to share it with you.
+
+## Website URL
+
+Visit the website here: [Advert Generator](https://advertgenerator.vercel.app/)
+
+## Features
+
+- **Text to Image Generation:** Convert your text into visually appealing images.
+- **Responsive Design:** The website is designed to work seamlessly on various devices.
+
+## How to Use
+
+1. Visit the website using the provided URL.
+2. Enter your text in the input box.
+3. Click the "Generate Image" button to create artwork based on your input.
+
+## Technologies Used
+
+- React
+- Vite
+- CSS
+
+## Contributors
+
+- Sibomana Glorry
+- Kato Steven Mubiru
+
+## Feedback and Issues
+
+If you encounter any issues or have feedback, feel free to [create an issue](https://github.com/KatoStevenMubiru/Blockchain-Sol/tree/main/StabilityAIAdvert/advertmaker/issues).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
