@@ -1,3 +1,4 @@
+//adMaker.jsx
 import React, { useEffect, useState } from "react";
 import "./TextToImageComponent.css"; 
 import dotenv from 'dotenv';

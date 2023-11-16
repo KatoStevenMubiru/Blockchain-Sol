@@ -1,6 +1,9 @@
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+//landingPage.jsx
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import styled, { keyframes, createGlobalStyle } from "styled-components";
 import { TypeAnimation } from "react-type-animation";
+import LoginPage from "./login";
+
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap');
@@ -66,7 +69,7 @@ const AnimatedParagraph = styled.p`
 
 function LandingPage() {
   return (
-    <Router>
+    <>
       <GlobalStyles />
       <Header>
         <h1>Image Generator</h1>
@@ -95,8 +98,11 @@ function LandingPage() {
       <Footer>
         <p>Developed by Sibomana Glorry & Kato Steven</p>
       </Footer>
-    </Router>
+    </>
   );
-}
+ }
+ 
+ export default LandingPage;
 
-export default LandingPage;
+ 
+ 
