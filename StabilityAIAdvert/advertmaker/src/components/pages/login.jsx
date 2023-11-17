@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebase"; // Path to your firebase.js file
 import styled from "styled-components";
-import { useEffect, useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -26,11 +25,6 @@ const Button = styled.button`
 `;
 
 function LoginPage() {
-  const [key, setKey] = useState(Date.now());
-
-  useEffect(() => {
-    setKey(Date.now()); // This will trigger a re-render
-  }, []);
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
