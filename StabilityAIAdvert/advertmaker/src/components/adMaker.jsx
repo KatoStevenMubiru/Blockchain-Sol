@@ -121,7 +121,7 @@ const TextToImageComponent = () => {
               alt="Generated Image"
               style={{ maxWidth: "500px", height: "auto" ,borderRadius: '30px'}}
             />
-            <button onClick={handleDownloadClick}>
+            <button onClick={handleDownloadClick} title="Download Your Image">
               <DownloadIcon /> 
             </button>
           </>
