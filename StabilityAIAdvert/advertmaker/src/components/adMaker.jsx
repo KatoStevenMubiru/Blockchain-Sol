@@ -1,8 +1,9 @@
 //adMaker.jsx
 import React, { useEffect, useState } from "react";
-import "./TextToImageComponent.css"; 
-import dotenv from 'dotenv';
+import "./TextToImageComponent.css";
+import dotenv from "dotenv";
 import { CircularProgress } from "@mui/material";
+import DownloadIcon from "@mui/icons-material/Download";
 // Import a CSS file for styling (see below)
 
 const TextToImageComponent = () => {
@@ -66,6 +67,15 @@ const TextToImageComponent = () => {
     fetchImage();
   };
 
+  const handleDownloadClick = () => {
+    const link = document.createElement("a");
+    link.href = imageData;
+    link.download = "generated-image.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="text-to-image-container">
       <div className="input-container">
@@ -85,9 +95,20 @@ const TextToImageComponent = () => {
 
       <div className="image-container">
         {loading ? (
-          <CircularProgress/>
+          <CircularProgress />
         ) : (
-          imageData && <img src={imageData} alt="Generated Image" />
+          imageData && (
+            <>
+              <img
+                src={imageData}
+                alt="Generated Image"
+                style={{ maxWidth: "500px", height: "auto" ,borderRadius: '30px'}}
+              />
+              <button onClick={handleDownloadClick}>
+                <DownloadIcon /> 
+              </button>
+            </>
+          )
         )}
       </div>
     </div>
