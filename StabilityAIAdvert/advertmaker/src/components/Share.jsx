@@ -28,6 +28,8 @@ import {
  WorkplaceIcon,
  
 } from 'react-share';
+
+   
 const base64ToBlobUrl = (base64) => {
     const base64Data = base64.replace(/^data:image\/png;base64,/, '');
     const binaryString = window.atob(base64Data);
@@ -48,6 +50,7 @@ const Share = ({ imageData, textInput }) => {
 
  return (
  <div className="share-container">
+    <div className="container">
   <FacebookShareButton url={url} quote={textInput} media={imageBlobUrl}>
     <FacebookIcon size={32} round />
   </FacebookShareButton>
@@ -103,7 +106,7 @@ const Share = ({ imageData, textInput }) => {
   <WorkplaceShareButton url={url}>
     <WorkplaceIcon size={32} round />
   </WorkplaceShareButton>
-
+  </div>
  </div>
  );
 };
