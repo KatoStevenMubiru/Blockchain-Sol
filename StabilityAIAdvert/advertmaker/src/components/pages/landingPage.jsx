@@ -72,7 +72,7 @@ function LandingPage() {
     <>
       <GlobalStyles />
       <Header>
-        <h1>Image Generator</h1>
+        <h1>Creantly.AI</h1>
         <Link to="/login">
           <Button>Login</Button>
         </Link>
@@ -80,7 +80,7 @@ function LandingPage() {
       <Main>
         <TypeAnimation
           sequence={[
-            "Welcome To Our Image Generator",
+            "Welcome To Our Content Creation Assistant",
             1000,
             "Generate AI Images Of Your Choice",
             1000,
