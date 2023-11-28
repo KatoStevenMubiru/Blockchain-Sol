@@ -3,6 +3,7 @@ import "./TextToImageComponent.css";
 import dotenv from "dotenv";
 import { CircularProgress } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
+import Share from "./Share";
 
 const TextToImageComponent = () => {
  const [apiKey, setApiKey] = useState(import.meta.env.VITE_API_KEY);
@@ -92,8 +93,8 @@ const TextToImageComponent = () => {
  return (
   <div className="text-to-image-container">
     <div className="input-container">
-      <h1>Generate Adverts from Text</h1>
-      <h5>By Sibomana Glorry & Kato Steven</h5>
+      <h1>Generate Content From A Single Prompt</h1>
+      {/* <h5>By Sibomana Glorry & Kato Steven</h5> */}
       <label htmlFor="textInput">Enter Your Text Prompt:</label>
       <input
         type="text"
@@ -124,6 +125,7 @@ const TextToImageComponent = () => {
             <button onClick={handleDownloadClick} title="Download Your Image">
               <DownloadIcon /> 
             </button>
+            <Share imageData={imageData} textInput={textInput} />
           </>
         )
       )}
